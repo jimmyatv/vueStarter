@@ -1,13 +1,15 @@
 <template>
-    <nav :class="[darkTheme ? 'darkTheme-isActive' : '']">
+    <nav :class="[darkTheme ? 'isActive' : '']">
       <img :src="logo" alt="">
       <ul>
         <li v-for="(page, idx) in pagesData" :key="idx">
-          <a :href="page.link">{{page.name}}</a>
+          <a 
+          :class="[darkTheme ? 'isActive' : '']"
+          :href="page.url">{{page.name}}</a>
         </li>
       </ul>
       <button 
-      :class="[darkTheme ? 'lightButton' : '']"
+      :class="[darkTheme ? 'isActive' : '']"
       @click.prevent="darkTheme = !darkTheme">Change theme</button>
     </nav>
 </template>
@@ -15,6 +17,7 @@
 <script>
 import pagesData from '@/data/pagesData';
 import logo from '@/assets/arLogo.png';
+
 
 export default {
   data() {
@@ -55,9 +58,15 @@ nav ul li a {
     font-size: 1.4rem;
     transition: .2s linear;
     cursor: pointer;
+    text-decoration: none;
+    color: #4F8782;
 }
 nav ul li a:hover {
    color: orange;
+}
+
+nav ul li a.isActive {
+  color: #fff;
 }
 
 button {
@@ -79,16 +88,18 @@ button:hover {
   transition: .2s linear;
 }
 
-.darkTheme-isActive {
-  background: #4F8782;
-  color: white;
-}
-
-.lightButton {
+button.isActive {
   background: #fff;
   color: #4F8782;
   border: 2px solid #fff;
 }
+
+nav.isActive {
+  background: #4F8782;
+  color: white;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+}
+
 .lightButton:hover {
   color: #fff;
 }
