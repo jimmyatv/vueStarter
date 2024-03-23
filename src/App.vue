@@ -5,16 +5,17 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import MainHeader from '@/components/MainHeader.vue';
 import OurHero from '@/components/OurHero.vue';
+import { defineComponent } from 'vue';
 
-export default {
+defineComponent({
   components: {
     MainHeader,
     OurHero
   }
-}
+})
 </script>
 
 <style>

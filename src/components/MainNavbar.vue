@@ -1,68 +1,60 @@
 <template>
-    <nav :class="[darkTheme ? 'isActive' : '']">
-      <img :src="logo" alt="">
-      <ul>
-        <li v-for="(page, idx) in pagesData" :key="idx">
-          <a 
-          :class="[darkTheme ? 'isActive' : '']"
-          :href="page.url">{{page.name}}</a>
-        </li>
-      </ul>
-      <button 
-      :class="[darkTheme ? 'isActive' : '']"
-      @click.prevent="darkTheme = !darkTheme">Change theme</button>
-    </nav>
+  <nav :class="[darkTheme ? 'isActive' : '']">
+    <img :src="logoRef" alt="">
+    <ul>
+      <li v-for="(page, idx) in pagesDataRef" :key="idx">
+        <a :class="[darkTheme ? 'isActive' : '']" :href="page.url">{{page.name}}</a>
+      </li>
+    </ul>
+    <button :class="[darkTheme ? 'isActive' : '']" @click.prevent="handleTheme">Change theme</button>
+  </nav>
 </template>
 
-<script>
+<script setup>
+import { ref } from 'vue';
 import pagesData from '@/data/pagesData';
 import logo from '@/assets/arLogo.png';
 
+const pagesDataRef = ref(pagesData);
+const logoRef = ref(logo);
+const darkTheme = ref(false);
 
-export default {
-  data() {
-    return {
-      pagesData: pagesData,
-      logo: logo,
-      darkTheme: false
-    }
-  }
-}
+const handleTheme = () => {
+  darkTheme.value = !darkTheme.value;
+};
 </script>
 
-
-//CSS
 <style scoped>
 nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: #E3E3E3;
-    box-shadow: 1px 2px 8px rgba(0, 0, 0, 0.4);
-    padding: 15px;
-    transition: .2s linear;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #E3E3E3;
+  box-shadow: 1px 2px 8px rgba(0, 0, 0, 0.4);
+  padding: 15px;
+  transition: .2s linear;
 }
 nav img {
-    width: 100px;
+  width: 100px;
 }
 nav ul {
-    display: flex;
+  display: flex;
 }
 
 nav ul li {
-    list-style: none;
-    margin-right: 15px;
+  list-style: none;
+  margin-right: 15px;
 }
 
 nav ul li a {
-    font-size: 1.4rem;
-    transition: .2s linear;
-    cursor: pointer;
-    text-decoration: none;
-    color: #4F8782;
+  font-size: 1.4rem;
+  transition: .2s linear;
+  cursor: pointer;
+  text-decoration: none;
+  color: #4F8782;
 }
 nav ul li a:hover {
-   color: orange;
+  color: orange;
 }
 
 nav ul li a.isActive {
