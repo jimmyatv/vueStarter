@@ -2,18 +2,21 @@
   <div id="app">
     <MainHeader />
     <OurHero />
+    <UsersList/>
   </div>
 </template>
 
 <script setup>
 import MainHeader from '@/components/MainHeader.vue';
 import OurHero from '@/components/OurHero.vue';
+import UsersList from '@/components/UsersList.vue'
 import { defineComponent } from 'vue';
 
 defineComponent({
   components: {
     MainHeader,
-    OurHero
+    OurHero,
+    UsersList
   }
 })
 </script>
