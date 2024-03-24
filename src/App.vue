@@ -3,20 +3,23 @@
     <MainHeader />
     <OurHero />
     <UsersList/>
+    <PhonesList/>
   </div>
 </template>
 
 <script setup>
+import { defineComponent } from 'vue';
 import MainHeader from '@/components/MainHeader.vue';
 import OurHero from '@/components/OurHero.vue';
 import UsersList from '@/components/UsersList.vue'
-import { defineComponent } from 'vue';
+import PhonesList from '@/components/PhonesList.vue'
 
 defineComponent({
   components: {
     MainHeader,
     OurHero,
-    UsersList
+    UsersList,
+    PhonesList
   }
 })
 </script>

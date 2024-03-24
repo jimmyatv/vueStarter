@@ -1,25 +1,28 @@
 <template>
 	<div class="users">
-		<h1 :style="{textAlign: 'center', fontSize:'60px'}">My Kitty cats</h1>
+		<h1 :style="{ textAlign: 'center', fontSize: '60px' }">My Kitty cats</h1>
 		<div class="wrapperDiv">
 			<div v-for="(user, idx) in users" :key="idx" class="user">
 				<div class="singleUser">
 					<div class="userInfo">
+						<p>
+							<strong :style="{fontSize: '24px'}" >{{ user.id }}</strong>
+						</p>
 						<p>
 							Name: <span>{{ user.firstName }}</span>
 						</p>
 						<p>
 							Last Name: <span>{{ user.lastName }}</span>
 						</p>
-						<hr :style="{margin:'5px 0'}" />
-                        <p>Birth date:&nbsp;{{user.birthDate}}</p>
-                        <p>Age:&nbsp;{{user.age}}</p>
-                        <p>Gender:&nbsp;{{user.gender}}</p>
-                        <p>Height:&nbsp;{{user.height}}</p>
-                        <p>Weight:&nbsp;{{user.weight}}</p>
-                        <p>Number:&nbsp;{{user.phone}}</p>
-                        <p>Mail:&nbsp;{{user.email}}</p>
-                        <p>Password:&nbsp;{{user.password}}</p>
+						<hr :style="{ margin: '5px 0' }" />
+						<p>Birth date:&nbsp;{{ user.birthDate }}</p>
+						<p>Age:&nbsp;{{ user.age }}</p>
+						<p>Gender:&nbsp;{{ user.gender }}</p>
+						<p>Height:&nbsp;{{ user.height }}</p>
+						<p>Weight:&nbsp;{{ user.weight }}</p>
+						<p>Number:&nbsp;{{ user.phone }}</p>
+						<p>Mail:&nbsp;{{ user.email }}</p>
+						<p>Password:&nbsp;{{ user.password }}</p>
 					</div>
 					<div class="img">
 						<img :src="user.image" alt="image" />
@@ -42,7 +45,7 @@
 			.then((res) => res.json())
 			.then((usr) => {
 				users.value = usr.users;
-				console.log(usr);
+				// console.log(usr);
 			});
 	});
 </script>
@@ -52,17 +55,19 @@
 <style scoped>
 	.users {
 		display: flex;
-        gap: 3rem;
-        flex-direction: column;
+		gap: 3rem;
+		flex-direction: column;
 		padding: 2rem;
 	}
-    .wrapperDiv {
-        display: flex;
-        gap: 15px;
+	.wrapperDiv {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 15px;
 		flex-wrap: wrap;
-    }
+	}
 	.user {
-        box-shadow: 1px 2px 14px rgba(0, 0, 0, .1);
+		box-shadow: 1px 2px 14px rgba(0, 0, 0, 0.1);
 		padding: 1rem;
 		width: calc(33% - 30px);
 		border-radius: 14px;
@@ -77,7 +82,7 @@
 	.singleUser {
 		display: flex;
 		justify-content: space-between;
-        align-items: center;
+		align-items: center;
 	}
 	.img {
 		flex: 35%;
@@ -85,5 +90,16 @@
 	}
 	.singleUser .img img {
 		width: 89px;
+	}
+
+	@media (max-width: 1200px) {
+		.user {
+			width: calc(50% - 15px);
+		}
+	}
+	@media (max-width: 768px) {
+		.user {
+			width: 100%;
+		}
 	}
 </style>
