@@ -11,7 +11,7 @@
 						<p>
 							Last Name: <span>{{ user.lastName }}</span>
 						</p>
-						<hr />
+						<hr :style="{margin:'5px 0'}" />
                         <p>Birth date:&nbsp;{{user.birthDate}}</p>
                         <p>Age:&nbsp;{{user.age}}</p>
                         <p>Gender:&nbsp;{{user.gender}}</p>
@@ -62,7 +62,7 @@
 		flex-wrap: wrap;
     }
 	.user {
-		border: 2px solid rgb(113, 113, 163);
+        box-shadow: 1px 2px 14px rgba(0, 0, 0, .1);
 		padding: 1rem;
 		width: calc(33% - 30px);
 		border-radius: 14px;
