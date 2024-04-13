@@ -4,6 +4,7 @@
     <OurHero />
     <UsersList/>
     <PhonesList/>
+    <WorkersList/>
   </div>
 </template>
 
@@ -13,13 +14,15 @@ import MainHeader from '@/components/MainHeader.vue';
 import OurHero from '@/components/OurHero.vue';
 import UsersList from '@/components/UsersList.vue'
 import PhonesList from '@/components/PhonesList.vue'
+import WorkersList from '@/components/WorkersList.vue'
 
 defineComponent({
   components: {
     MainHeader,
     OurHero,
     UsersList,
-    PhonesList
+    PhonesList,
+    WorkersList
   }
 })
 </script>
